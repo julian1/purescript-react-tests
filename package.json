@@ -6,6 +6,10 @@
   "repository": "https://github.com/bengrunfeld/flux-react-todos",
   "readme": "https://github.com/bengrunfeld/flux-react-todos/README.md",
   "license": "Apache 2",
+
+
+  "browserify": {"transform": ["reactify"]},
+
   "devDependencies": {
     "gulp": "^3.8.11",
     "browserify": "^11.1.0",
