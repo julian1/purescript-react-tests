@@ -1,13 +1,17 @@
 var gulp = require('gulp');
-var browserify = require('gulp-browserify');
-var concat = require('gulp-concat');
+var reactify = require('reactify');
+var browserify = require('browserify');
+var source = require("vinyl-source-stream");
 
-gulp.task('browserify', function() {
-    gulp.src('src/js/main.js')
-      .pipe(browserify({transform:'reactify'}))
-      .pipe(concat('main.js'))
-      .pipe(gulp.dest('dist/js'));
+gulp.task('browserify', function(){
+  var b = browserify();
+  b.transform(reactify); // use the reactify transform
+  b.add('./src/js/main.js');
+  return b.bundle()
+    .pipe(source('main.js'))
+    .pipe(gulp.dest('./dist'));
 });
+
 
 gulp.task('copy', function() {
     gulp.src('src/*.html')
