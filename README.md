@@ -1,6 +1,5 @@
 ```
 npm install
-gulp
-node server.js 
+gulp && node server.js 
 ```
 
