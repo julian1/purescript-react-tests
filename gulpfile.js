@@ -13,7 +13,7 @@ gulp.task('browserify', function(){
   b.transform({ global: true }, reactify); // use the reactify transform
   b.add('./src/js/main.jsx');
   return b.bundle()
-    .pipe(source('main.js'))
+    .pipe(source('bundle.js'))
     .pipe(gulp.dest('./dist'));
 });
 
