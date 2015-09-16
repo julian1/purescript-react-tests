@@ -1,11 +1,10 @@
 
 var server = require('http').createServer()
   , url = require('url')
-  , WebSocketServer = require('ws').Server
-  , wss = new WebSocketServer({ server: server })
   , express = require('express')
   , app = express()
-  , port = 80;
+  , port = 8081
+;
 
 var path = require('path');
 var fs = require('fs');

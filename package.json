@@ -8,9 +8,10 @@
   "license": "Apache 2",
 
 
-  "browserify": {"transform": ["reactify"]},
 
   "devDependencies": {
+
+    "express": "^4.13.3",
     "gulp": "^3.8.11",
     "browserify": "^11.1.0",
     "vinyl-source-stream": "^1.1.0",
