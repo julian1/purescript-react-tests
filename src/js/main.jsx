@@ -2,7 +2,9 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 
-var $ = require('jquery');
+// var $ = require('jquery');
+
+var UserGist = require('./UserGist.jsx');
 
 
 // First we import some components...
@@ -14,39 +16,6 @@ var Link = ReactRouter.Link;
 //var DefaultRoute = ReactRouter.DefaultRoute;
 //var RouteHandler = ReactRouter.RouteHandler;
 
-
-
-var UserGist = React.createClass({
-  getInitialState: function() {
-    return {
-      username: '',
-      lastGistUrl: '',
-      whoot: 'whoot'
-    };
-  },
-
-  componentDidMount: function() {
-    $.get(this.props.source, function(result) {
-      var lastGist = result[0];
-      if (this.isMounted()) {
-        this.setState({
-          username: lastGist.owner.login,
-          lastGistUrl: lastGist.html_url
-        });
-      }
-    }.bind(this));
-  },
-
-  render: function() {
-    return (
-      <div>
-        whoot is {this.props.whoot}
-        {this.state.username}'s last gist is
-        <a href={this.state.lastGistUrl}>here</a>.
-      </div>
-    );
-  }
-});
 
 
 
