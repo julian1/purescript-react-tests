@@ -21,6 +21,7 @@
     "es6-promise": "^1.0.0",
     "flux": "^2.0.1",
     "object-assign": "^1.0.0",
-    "react-router": "^1.0.0"
+    "react-router": "^1.0.0",
+    "jquery": "^2.1.4"
   }
 }
