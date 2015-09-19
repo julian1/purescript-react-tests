@@ -20,7 +20,8 @@ var UserGist = React.createClass({
   getInitialState: function() {
     return {
       username: '',
-      lastGistUrl: ''
+      lastGistUrl: '',
+      whoot: 'whoot'
     };
   },
 
@@ -39,6 +40,7 @@ var UserGist = React.createClass({
   render: function() {
     return (
       <div>
+        whoot is {this.props.whoot}
         {this.state.username}'s last gist is
         <a href={this.state.lastGistUrl}>here</a>.
       </div>
