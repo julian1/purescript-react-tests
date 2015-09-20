@@ -1,5 +1,6 @@
 
 var React = require('react');
+// http://rkulla.blogspot.com.au/2014/04/using-browserify-with-jquery-backbonejs.html
 var $ = require('jquery');
 
 
