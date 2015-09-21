@@ -10,12 +10,8 @@ var ReactRouter = require('react-router');
 
 var UserGist = require('./UserGist.jsx');
 
-// import history from './history';
 
-// let history = createBrowserHistory();
-//var createBrowserHistory = ReactRouter.History.CreateBrowserHistory.createBrowserHistory;
-//var createBrowserHistory = ReactRouter.History.createBrowserHistory.createBrowserHistorY;
-
+// https://github.com/rackt/react-router/blob/master/docs/guides/basics/Histories.md
 var createBrowserHistory = require( 'history/lib/createBrowserHistory');  
 
 
