@@ -72,17 +72,20 @@ const Message = React.createClass({
 
 const Inbox = React.createClass({
 
-//  getInitialState() {
-//    return { whoot: "whoot" }
-//  },
+  getInitialState() {
+
+//    console.log("Inbox.getInitialState");
+    return { whoot: "whoot" }
+  },
  
   render() {
-    console.log("whoot prop " + this.props.whoot);
+    console.log("Inbox.render state.whoot = " + this.state.whoot);
 //    var x = "hi";
 //      <div>"a" + {x}</div>); 
     return (
       <div>
         <h2>Inbox</h2>
+        <div>{this.state.whoot}</div>
         {/* Render the child route component */}
         {this.props.children || "Welcome to your Inbox"}
       </div>
