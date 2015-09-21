@@ -2,9 +2,21 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 
+
+// const createBrowserHistory = require('createBrowserHistory');
+
+
 // var $ = require('jquery');
 
 var UserGist = require('./UserGist.jsx');
+
+// import history from './history';
+
+// let history = createBrowserHistory();
+//var createBrowserHistory = ReactRouter.History.CreateBrowserHistory.createBrowserHistory;
+//var createBrowserHistory = ReactRouter.History.createBrowserHistory.createBrowserHistorY;
+
+var createBrowserHistory = require( 'history/lib/createBrowserHistory');  
 
 
 // First we import some components...
@@ -101,9 +113,13 @@ const App = React.createClass({
 // It does all the fancy routing stuff for us.
 
 //    <UserGist source="https://api.github.com/users/octocat/gists" />,
+// <Router history={createBrowserHistory()} >
+
+//  <Router  >
 React.render((
-  <Router>
-    <Route path="/" component={ App }>
+
+  <Router history={createBrowserHistory()} >
+    <Route path="/" component={ App } location="history">
       <Route path="about" component={About} />
       <Route path="inbox" component={Inbox } whoot="ggg" >
           <Route path="messages/:id" component={Message} />
