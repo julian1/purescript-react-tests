@@ -136,7 +136,8 @@ React.render((
       <IndexRoute component={Home}/>
       <Route path="about" component={About} />
       <Route path="inbox" component={Inbox } whoot="ggg" >
-          <Route path="messages/:id" component={Message} />
+          {/* Use /messages/:id instead of messages/:id */}
+          <Route path="/messages/:id" component={Message} />
       </Route>
     </Route>
 
