@@ -20,10 +20,18 @@ var createBrowserHistory = require( 'history/lib/createBrowserHistory');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Link = ReactRouter.Link;
+var IndexRoute = ReactRouter.IndexRoute;
 //var DefaultRoute = ReactRouter.DefaultRoute;
 //var RouteHandler = ReactRouter.RouteHandler;
 
 
+const Home = React.createClass({
+  render() {
+    return (
+      <div>Home</div>
+      ); 
+  }
+});
 
 
 const About = React.createClass({
@@ -125,6 +133,7 @@ React.render((
 
   <Router history={history} >
     <Route path="/" component={ App } location="history">
+      <IndexRoute component={Home}/>
       <Route path="about" component={About} />
       <Route path="inbox" component={Inbox } whoot="ggg" >
           <Route path="messages/:id" component={Message} />
