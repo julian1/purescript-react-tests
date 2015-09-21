@@ -30,19 +30,45 @@ const About = React.createClass({
 });
 
 
+
+const Message = React.createClass({
+  
+  componentDidMount() {
+    // from the path `/inbox/messages/:id`
+    const id = this.props.params.id
+    console.log("message id is " + id);
+    // fetchMessage(id, function (err, message) {
+    //  this.setState({ message: message })
+    // })
+  },
+
+  render() {
+    return <h3>Message</h3>
+  }
+
+});
+
+
 const Inbox = React.createClass({
 
-  getInitialState() {
-    return { whoot: "whoot" }
-  },
+//  getInitialState() {
+//    return { whoot: "whoot" }
+//  },
  
   render() {
-    console.log("props " + this.props.whoot);
-    var x = "hi";
+    console.log("whoot prop " + this.props.whoot);
+//    var x = "hi";
+//      <div>"a" + {x}</div>); 
     return (
-      <div>"a" + {x}</div>); 
+      <div>
+        <h2>Inbox</h2>
+        {/* Render the child route component */}
+        {this.props.children || "Welcome to your Inbox"}
+      </div>
+    );
   }
 });
+
  
 
 // Then we delete a bunch of code from App and
@@ -79,7 +105,9 @@ React.render((
   <Router>
     <Route path="/" component={ App }>
       <Route path="about" component={About} />
-      <Route path="inbox" component={Inbox } whoot="ggg" />
+      <Route path="inbox" component={Inbox } whoot="ggg" >
+          <Route path="messages/:id" component={Message} />
+      </Route>
     </Route>
 
 
