@@ -14,7 +14,6 @@ var UserGist = require('./UserGist.jsx');
 // https://github.com/rackt/react-router/blob/master/docs/guides/basics/Histories.md
 var createBrowserHistory = require( 'history/lib/createBrowserHistory');  
 
-
 // First we import some components...
 // import { Router, Route, Link } from 'react-router'
 
@@ -45,13 +44,19 @@ const Message = React.createClass({
     // from the path `/inbox/messages/:id`
     const id = this.props.params.id
     console.log("message id is " + id);
+
+    // now we'd send a flux action, switched to active message...
+    // or just hit up, the api...
+
     // fetchMessage(id, function (err, message) {
     //  this.setState({ message: message })
     // })
+    
+    this.setState({ message: "mymessage " + id })
   },
 
   render() {
-    return <h3>Message</h3>
+    return <h3>{(this.state && this.state.message) || "Message"} </h3>
   }
 
 });
@@ -112,9 +117,13 @@ const App = React.createClass({
 // <Router history={createBrowserHistory()} >
 
 //  <Router  >
+// <Route path="*" component={App}/>
+
+var history = createBrowserHistory()
+
 React.render((
 
-  <Router history={createBrowserHistory()} >
+  <Router history={history} >
     <Route path="/" component={ App } location="history">
       <Route path="about" component={About} />
       <Route path="inbox" component={Inbox } whoot="ggg" >
