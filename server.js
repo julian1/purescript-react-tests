@@ -9,6 +9,7 @@ var server = require('http').createServer()
 var path = require('path');
 var fs = require('fs');
 
+// https://github.com/rackt/react-router/blob/master/docs/guides/basics/Histories.md
 
 // serves files index.html etc
 // app.use('/', express.static(path.join(__dirname, 'dist')));
