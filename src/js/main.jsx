@@ -9,6 +9,8 @@ var ReactRouter = require('react-router');
 // var $ = require('jquery');
 
 var UserGist = require('./UserGist.jsx');
+var ContactForm = require('./ContactForm.jsx');
+
 
 
 // https://github.com/rackt/react-router/blob/master/docs/guides/basics/Histories.md
@@ -39,6 +41,7 @@ const About = React.createClass({
     return (
       <div>About
           <UserGist source="https://api.github.com/users/octocat/gists" />
+          <ContactForm  value={ { }  }  />
       </div>
       ); 
   }
