@@ -2,7 +2,7 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 
-
+// import { Router, Route, Link, History } from 'react-router';
 // const createBrowserHistory = require('createBrowserHistory');
 
 
@@ -93,6 +93,21 @@ const Inbox = React.createClass({
   }
 });
 
+
+
+const MyInput = React.createClass({
+    render() { 
+      return (
+        React.createElement("input", {
+          // The callback passed to `onChange` will be called when `value` should change
+          onChange: function(syntheticEvent) {
+              // Log new `value` to JavaScript console
+              console.log(syntheticEvent.target.value)
+          }
+        })
+      )
+    }
+});
  
 
 // Then we delete a bunch of code from App and
@@ -102,6 +117,7 @@ const App = React.createClass({
     return (
       <div>
         <h1>App</h1>
+        <MyInput/>
         {/* change the <a>s to <Links>s */}
         <ul>
           <li><Link to="/about">About</Link></li>
