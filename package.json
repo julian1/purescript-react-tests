@@ -17,10 +17,12 @@
     "vinyl-source-stream": "^1.1.0",
     "gulp-concat": "^2.2.0",
     "react": "^0.12.2",
+    "history": "^1.9.0",
     "reactify": "^0.13.1",
     "es6-promise": "^1.0.0",
     "flux": "^2.0.1",
     "object-assign": "^1.0.0",
-    "react-router": "^1.0.0"
+    "react-router": "^1.0.0",
+    "jquery": "^2.1.4"
   }
 }
