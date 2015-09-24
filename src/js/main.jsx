@@ -35,13 +35,19 @@ const Home = React.createClass({
   }
 });
 
+var Alert = require('react-bootstrap').Alert;
+var Button = require('react-bootstrap').Button;
+
+
 
 const About = React.createClass({
   render() {
     return (
       <div>About
+           <Button bsStyle="primary" bsSize="large">Large button</Button>
+          <Button bsSize="large">Large button</Button>
           <UserGist source="https://api.github.com/users/octocat/gists" />
-          <ContactForm  value={ { }  }  />
+          <ContactForm  value={ { name : "fred" }  }  />
       </div>
       ); 
   }
@@ -149,6 +155,9 @@ const App = React.createClass({
 //  <Router  >
 // <Route path="*" component={App}/>
 
+
+
+
 var history = createBrowserHistory()
 
 React.render((
@@ -162,8 +171,6 @@ React.render((
           <Route path="/messages/:id" component={Message} />
       </Route>
     </Route>
-
-
   </Router>
 ), document.body)
 
