@@ -44,8 +44,8 @@ const About = React.createClass({
   render() {
     return (
       <div>About
-           <Button bsStyle="primary" bsSize="large">Large button</Button>
-          <Button bsSize="large">Large button</Button>
+           <Button bsStyle="primary" bsSize="medium">Medium button</Button>
+          <Button bsSize="medium">Large button</Button>
           <UserGist source="https://api.github.com/users/octocat/gists" />
           <ContactForm  value={ { name : "fred" }  }  />
       </div>

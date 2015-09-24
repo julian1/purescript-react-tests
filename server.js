@@ -16,6 +16,8 @@ var fs = require('fs');
 
 // serve static assets normally
 app.use(express.static(__dirname + '/dist'))
+app.use(express.static(__dirname + '/node_modules/bootstrap/dist'))
+
 
 
 // handle every other route with index.html, which will contain
