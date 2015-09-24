@@ -1,10 +1,10 @@
 {
-  "name": "flux",
+  "name": "whoot",
   "version": "0.0.1",
-  "description": "A simple TODOS app in React and Flux",
-  "author": "Ben Grunfeld",
-  "repository": "https://github.com/bengrunfeld/flux-react-todos",
-  "readme": "https://github.com/bengrunfeld/flux-react-todos/README.md",
+  "description": "A simple app in React",
+  "author": "Julian1",
+  "repository": "https://github.com/julian1/react-tests",
+  "readme": "https://github.com/julian1/react-tests/blob/master/README.md",
   "license": "Apache 2",
 
   "devDependencies": {
