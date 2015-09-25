@@ -16,6 +16,8 @@ var ContactForm = require('./ContactForm.jsx');
 // https://github.com/rackt/react-router/blob/master/docs/guides/basics/Histories.md
 var createBrowserHistory = require( 'history/lib/createBrowserHistory');  
 
+var history = createBrowserHistory()
+
 // First we import some components...
 // import { Router, Route, Link } from 'react-router'
 
@@ -35,6 +37,7 @@ const Home = React.createClass({
   }
 });
 
+// TODO if we only use require for the specific items we want it might reduce the size...
 var Bootstrap = require('react-bootstrap');
 var Alert = Bootstrap.Alert;
 var Button = Bootstrap.Button;
@@ -44,7 +47,9 @@ var NavDropdown = Bootstrap.NavDropdown;
 var MenuItem = Bootstrap.MenuItem;
 var NavItem = Bootstrap.NavItem;
 
- 
+var ReactRouterBootstrap = require('react-router-bootstrap'); 
+var LinkContainer = ReactRouterBootstrap.LinkContainer;
+
 
 const About = React.createClass({
   render() {
@@ -89,11 +94,23 @@ const Message = React.createClass({
  // render() { 
   //  return (
 
+//        <LinkContainer to="/about" >
+ //         <NavItem>Link</NavItem>
+  //      </LinkContainer>
+
+
 const navbarInstance = ( 
   <Navbar brand="React-Bootstrap">
     <Nav>
-      <NavItem eventKey={1} href="#">Link</NavItem>
-      <NavItem eventKey={2} href="#">Link</NavItem>
+      { /* this works but does a complete reload */ }
+      <NavItem eventKey={2} href="/about">About</NavItem>
+      <NavItem eventKey={2} href="/inbox">Inbox</NavItem>
+
+      {/*<LinkContainer to="/about" history={history} >
+        <NavItem>Inbox</NavItem>
+      </LinkContainer>
+      */}
+
       <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
         <MenuItem eventKey="1">Action</MenuItem>
         <MenuItem eventKey="2">Another action</MenuItem>
@@ -103,42 +120,7 @@ const navbarInstance = (
       </NavDropdown>
     </Nav>
   </Navbar>
-  )
-  ;
-
-
-const Inbox = React.createClass({
-
-  getInitialState() {
-
-//    console.log("Inbox.getInitialState");
-    return { whoot: "whoot" }
-  },
- 
-  render() {
-    console.log("Inbox.render state.whoot = " + this.state.whoot);
-    var x = "hi";
-      return (
-      <div>
-      <div>"a" + {x}</div>
-      <div>{navbarInstance}</div>
-      </div>
-      );
-    }, 
-
-  render2() {
-    return (
-      <div>
-        <h2>Inbox</h2>
-        <navbarInstance/>
-        <div>{this.state.whoot}</div>
-        {/* Render the child route component */}
-        {this.props.children || "Welcome to your Inbox"}
-      </div>
-    );
-  }
-});
-
+  );
 
 
 const MyInput = React.createClass({
@@ -155,6 +137,41 @@ const MyInput = React.createClass({
     }
 });
 
+
+
+const Inbox = React.createClass({
+
+  getInitialState() {
+
+//    console.log("Inbox.getInitialState");
+    return { whoot: "whoot" }
+  },
+ 
+  render() {
+    console.log("Inbox.render state.whoot = " + this.state.whoot);
+    var x = "hi";
+      return (
+      <div>
+      <div>"a" + {x}</div>
+      <MyInput/>
+      </div>
+      );
+    }, 
+
+  render2() {
+    return (
+      <div>
+        <h2>Inbox</h2>
+        <div>{this.state.whoot}</div>
+        {/* Render the child route component */}
+        {this.props.children || "Welcome to your Inbox"}
+      </div>
+    );
+  }
+});
+
+
+
 // this class uses router Link 
 
 // Then we delete a bunch of code from App and
@@ -163,8 +180,8 @@ const App = React.createClass({
   render() {
     return (
       <div>
+        <div>{navbarInstance}</div>
         <h1>App</h1>
-        <MyInput/>
         {/* change the <a>s to <Links>s */}
         <ul>
           <li><Link to="/about">About</Link></li>
@@ -200,7 +217,6 @@ const App = React.createClass({
 
 
 
-var history = createBrowserHistory()
 
 React.render((
   <Router history={history} >
