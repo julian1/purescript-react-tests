@@ -71,7 +71,7 @@ const Message = React.createClass({
   componentDidMount() {
     // from the path `/inbox/messages/:id`
     const id = this.props.params.id
-    console.log("message id is " + id);
+    console.log("Message component mouted - message id is " + id);
 
     // now we'd send a flux action, switched to active message...
     // or just hit up, the api...
@@ -84,7 +84,8 @@ const Message = React.createClass({
   },
 
   render() {
-    return <h3>{(this.state && this.state.message) || "Message"} </h3>
+//    return <h3>{(this.state && this.state.message) || "Message"} </h3>
+    return <h3>Message</h3>;
   }
 
 });
@@ -180,36 +181,36 @@ const App = React.createClass({
     return (
       <div>
         {/* <div>{navbarInstance}</div> */ }
-  <Navbar brand="React-Bootstrap">
-    <Nav history={history}>
-      { /* this works but does a complete reload */ }
-      <NavItem eventKey={2} href="/about">About</NavItem>
-      <NavItem eventKey={2} href="/inbox">Inbox</NavItem>
+        <Navbar brand="React-Bootstrap">
+          <Nav history={history}>
+            { /* this works but does a complete reload */ }
+            <NavItem eventKey={2} href="/about">About</NavItem>
+            <NavItem eventKey={2} href="/inbox">Inbox</NavItem>
 
-        <LinkContainer to="/about">
-          <Button bsStyle="primary" bsSize="medium">Whoo about!</Button>
-        </LinkContainer>
+              <LinkContainer to="/about">
+                <NavItem>About</NavItem>
+              </LinkContainer>
 
-     
-      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-        <MenuItem eventKey="1">Action</MenuItem>
-        <MenuItem eventKey="2">Another action</MenuItem>
-        <MenuItem eventKey="3">Something else here</MenuItem>
-        <MenuItem divider />
-        <MenuItem eventKey="4">Separated link</MenuItem>
-      </NavDropdown>
-    </Nav>
-  </Navbar>
+              <LinkContainer to="/inbox">
+                <NavItem>Inbox</NavItem>
+              </LinkContainer>
+           
+            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+              <MenuItem eventKey="1">Action</MenuItem>
+              <MenuItem eventKey="2">Another action</MenuItem>
+              <MenuItem eventKey="3">Something else here</MenuItem>
+              <MenuItem divider />
+              <MenuItem eventKey="4">Separated link</MenuItem>
+            </NavDropdown>
+          </Nav>
+        </Navbar>
 
         <h1>App</h1>
         {/* change the <a>s to <Links>s */}
         <ul>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/inbox">Inbox</Link></li>
-
-          <LinkContainer to="/about">
-            <Button bsStyle="primary" bsSize="medium">Whoo about!</Button>
-          </LinkContainer>
+          <li><Link to="/inbox/messages/123">Message 123</Link></li>
         </ul>
 
         {/*
@@ -248,8 +249,8 @@ React.render((
       <IndexRoute component={Home}/>
       <Route path="about" component={About} />
       <Route path="inbox" component={Inbox } whoot="ggg" >
-          {/* Use /messages/:id instead of messages/:id */}
-          <Route path="/messages/:id" component={Message} />
+          {/* Use /messages/:id instead of messages/:id to unnest */}
+          <Route path="messages/:id" component={Message} />
 
       </Route>
     </Route>
