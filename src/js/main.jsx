@@ -101,16 +101,12 @@ const Message = React.createClass({
 
 const navbarInstance = ( 
   <Navbar brand="React-Bootstrap">
-    <Nav>
+    <Nav history={history}>
       { /* this works but does a complete reload */ }
       <NavItem eventKey={2} href="/about">About</NavItem>
       <NavItem eventKey={2} href="/inbox">Inbox</NavItem>
 
-      {/*<LinkContainer to="/about" history={history} >
-        <NavItem>Inbox</NavItem>
-      </LinkContainer>
-      */}
-
+     
       <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
         <MenuItem eventKey="1">Action</MenuItem>
         <MenuItem eventKey="2">Another action</MenuItem>
@@ -186,6 +182,12 @@ const App = React.createClass({
         <ul>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/inbox">Inbox</Link></li>
+
+          <LinkContainer to="/about">
+            <Button bsStyle="primary" bsSize="medium">Whoo!</Button>
+          </LinkContainer>
+
+
         </ul>
 
         {/*
@@ -226,6 +228,7 @@ React.render((
       <Route path="inbox" component={Inbox } whoot="ggg" >
           {/* Use /messages/:id instead of messages/:id */}
           <Route path="/messages/:id" component={Message} />
+
       </Route>
     </Route>
   </Router>
