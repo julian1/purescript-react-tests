@@ -172,11 +172,35 @@ const Inbox = React.createClass({
 
 // Then we delete a bunch of code from App and
 // add some <Link> elements...
+
+// so we want to replace this entire thing with our navbar
+
 const App = React.createClass({
   render() {
     return (
       <div>
-        <div>{navbarInstance}</div>
+        {/* <div>{navbarInstance}</div> */ }
+  <Navbar brand="React-Bootstrap">
+    <Nav history={history}>
+      { /* this works but does a complete reload */ }
+      <NavItem eventKey={2} href="/about">About</NavItem>
+      <NavItem eventKey={2} href="/inbox">Inbox</NavItem>
+
+        <LinkContainer to="/about">
+          <Button bsStyle="primary" bsSize="medium">Whoo about!</Button>
+        </LinkContainer>
+
+     
+      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+        <MenuItem eventKey="1">Action</MenuItem>
+        <MenuItem eventKey="2">Another action</MenuItem>
+        <MenuItem eventKey="3">Something else here</MenuItem>
+        <MenuItem divider />
+        <MenuItem eventKey="4">Separated link</MenuItem>
+      </NavDropdown>
+    </Nav>
+  </Navbar>
+
         <h1>App</h1>
         {/* change the <a>s to <Links>s */}
         <ul>
@@ -184,10 +208,8 @@ const App = React.createClass({
           <li><Link to="/inbox">Inbox</Link></li>
 
           <LinkContainer to="/about">
-            <Button bsStyle="primary" bsSize="medium">Whoo!</Button>
+            <Button bsStyle="primary" bsSize="medium">Whoo about!</Button>
           </LinkContainer>
-
-
         </ul>
 
         {/*
