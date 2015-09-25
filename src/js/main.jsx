@@ -67,37 +67,11 @@ const About = React.createClass({
 
 
 const Message = React.createClass({
-  
-  componentDidMount() {
-    // from the path `/inbox/messages/:id`
-    const id = this.props.params.id
-    console.log("Message component mouted - message id is " + id);
-
-    // now we'd send a flux action, switched to active message...
-    // or just hit up, the api...
-
-    // fetchMessage(id, function (err, message) {
-    //  this.setState({ message: message })
-    // })
-    
-    this.setState({ message: "mymessage " + id })
-  },
-
   render() {
-//    return <h3>{(this.state && this.state.message) || "Message"} </h3>
-    return <h3>Message</h3>;
+    return <h3>Message {this.props.params.id}</h3>
   }
-
 });
 
-
-// const navbarInstance = React.createClass({
- // render() { 
-  //  return (
-
-//        <LinkContainer to="/about" >
- //         <NavItem>Link</NavItem>
-  //      </LinkContainer>
 
 
 const navbarInstance = ( 
@@ -135,37 +109,17 @@ const MyInput = React.createClass({
 });
 
 
-
 const Inbox = React.createClass({
-
-  getInitialState() {
-
-//    console.log("Inbox.getInitialState");
-    return { whoot: "whoot" }
-  },
- 
   render() {
-    console.log("Inbox.render state.whoot = " + this.state.whoot);
-    var x = "hi";
-      return (
-      <div>
-      <div>"a" + {x}</div>
-      <MyInput/>
-      </div>
-      );
-    }, 
-
-  render2() {
     return (
       <div>
         <h2>Inbox</h2>
-        <div>{this.state.whoot}</div>
-        {/* Render the child route component */}
+        <MyInput/>
         {this.props.children || "Welcome to your Inbox"}
       </div>
-    );
+    )
   }
-});
+})
 
 
 
