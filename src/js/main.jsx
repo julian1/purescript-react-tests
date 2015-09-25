@@ -35,10 +35,16 @@ const Home = React.createClass({
   }
 });
 
-var Alert = require('react-bootstrap').Alert;
-var Button = require('react-bootstrap').Button;
+var Bootstrap = require('react-bootstrap');
+var Alert = Bootstrap.Alert;
+var Button = Bootstrap.Button;
+var Navbar = Bootstrap.Navbar;
+var Nav = Bootstrap.Nav;
+var NavDropdown = Bootstrap.NavDropdown;
+var MenuItem = Bootstrap.MenuItem;
+var NavItem = Bootstrap.NavItem;
 
-
+ 
 
 const About = React.createClass({
   render() {
@@ -79,6 +85,28 @@ const Message = React.createClass({
 });
 
 
+// const navbarInstance = React.createClass({
+ // render() { 
+  //  return (
+
+const navbarInstance = ( 
+  <Navbar brand="React-Bootstrap">
+    <Nav>
+      <NavItem eventKey={1} href="#">Link</NavItem>
+      <NavItem eventKey={2} href="#">Link</NavItem>
+      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+        <MenuItem eventKey="1">Action</MenuItem>
+        <MenuItem eventKey="2">Another action</MenuItem>
+        <MenuItem eventKey="3">Something else here</MenuItem>
+        <MenuItem divider />
+        <MenuItem eventKey="4">Separated link</MenuItem>
+      </NavDropdown>
+    </Nav>
+  </Navbar>
+  )
+  ;
+
+
 const Inbox = React.createClass({
 
   getInitialState() {
@@ -89,11 +117,20 @@ const Inbox = React.createClass({
  
   render() {
     console.log("Inbox.render state.whoot = " + this.state.whoot);
-//    var x = "hi";
-//      <div>"a" + {x}</div>); 
+    var x = "hi";
+      return (
+      <div>
+      <div>"a" + {x}</div>
+      <div>{navbarInstance}</div>
+      </div>
+      );
+    }, 
+
+  render2() {
     return (
       <div>
         <h2>Inbox</h2>
+        <navbarInstance/>
         <div>{this.state.whoot}</div>
         {/* Render the child route component */}
         {this.props.children || "Welcome to your Inbox"}
@@ -117,7 +154,8 @@ const MyInput = React.createClass({
       )
     }
 });
- 
+
+// this class uses router Link 
 
 // Then we delete a bunch of code from App and
 // add some <Link> elements...
@@ -146,6 +184,10 @@ const App = React.createClass({
 
 
 
+// React.render(navbarInstance, mountNode);
+
+
+
 // Finally, we render a <Router> with some <Route>s.
 // It does all the fancy routing stuff for us.
 
@@ -161,7 +203,6 @@ const App = React.createClass({
 var history = createBrowserHistory()
 
 React.render((
-
   <Router history={history} >
     <Route path="/" component={ App } location="history">
       <IndexRoute component={Home}/>
