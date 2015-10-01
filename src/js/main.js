@@ -8,8 +8,8 @@ var ReactRouter = require('react-router');
 
 // var $ = require('jquery');
 
-var UserGist = require('./UserGist.jsx');
-var ContactForm = require('./ContactForm.jsx');
+var UserGist = require('./UserGist.js');
+var ContactForm = require('./ContactForm.js');
 
 
 

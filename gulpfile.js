@@ -24,7 +24,7 @@ function handleErrors() {
 gulp.task('browserify', function(){
   var b = browserify();
   b.transform({ global: true }, reactify); // use the reactify transform
-  b.add('./src/js/main.jsx');
+  b.add('./src/js/main.js');
   return b.bundle()
     // .on('error', handleErrors)
     .pipe(source('bundle.js'))
