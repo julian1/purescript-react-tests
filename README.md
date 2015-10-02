@@ -6,7 +6,11 @@ npm install
 gulp && node server.js 
 
 # precompile vendor deps
-./node_modules/browserify/bin/cmd.js  -r react -r react-router   > tmp/vendor.js
+
+# build vendor deps once
+./node_modules/browserify/bin/cmd.js  -r react -r react-router -r 'react-bootstrap' -r 'react-router-bootstrap' -r 'history' -r 'jquery'  > dist/vendor.js
+
+
 
 ```
 
