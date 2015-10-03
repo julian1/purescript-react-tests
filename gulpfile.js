@@ -54,6 +54,10 @@ gulp.task('copy', function() {
 
 gulp.task('default',['bundle', 'copy']);
 
-//gulp.task('watch', function() {
-//    gulp.watch('src/**/*.*', ['default']);
-//});
+
+gulp.task('watch', function() {
+    gulp.watch('src/js/*.js', ['default']);
+});
+
+
+
