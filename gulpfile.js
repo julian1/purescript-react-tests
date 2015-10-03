@@ -21,6 +21,20 @@ function handleErrors() {
   this.emit('end'); // Keep gulp from hanging on this task
 }
 
+
+gulp.task('vendor', function(){
+  var b = browserify();
+  b.transform({ global: true }, reactify); // use the reactify transform
+  // b.add('./src/js/main.js');
+  b.require(['react', 'react-router', 'react-bootstrap', 'react-router-bootstrap', 'history', 'jquery']);
+  return b.bundle()
+    // .on('error', handleErrors)
+    .pipe(source('vendor.js'))
+    .pipe(gulp.dest('./dist'));
+});
+
+
+
 gulp.task('browserify', function(){
   var b = browserify();
   b.transform({ global: true }, reactify); // use the reactify transform
