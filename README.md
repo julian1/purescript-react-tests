@@ -1,15 +1,15 @@
 #### react tests
-react, react-router, jquery, bootstrap, express, browserify etc
+
+react, react-router, react-bootstrap, react-router-bootstrap, history, jquery  etc
 
 ```
 npm install
+
+# compile vendor deps
+gulp vendor
+
+# compile and create app
 gulp && node server.js 
-
-# precompile vendor deps
-
-# build vendor deps once
-./node_modules/browserify/bin/cmd.js  -r react -r react-router -r 'react-bootstrap' -r 'react-router-bootstrap' -r 'history' -r 'jquery'  > dist/vendor.js
-
 
 
 ```

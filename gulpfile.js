@@ -21,12 +21,12 @@ function handleErrors() {
   this.emit('end'); // Keep gulp from hanging on this task
 }
 
+var deps = ['react', 'react-router', 'react-bootstrap', 'react-router-bootstrap', 'history', 'jquery'];
 
 gulp.task('vendor', function(){
   var b = browserify();
-  b.transform({ global: true }, reactify); // use the reactify transform
-  // b.add('./src/js/main.js');
-  b.require(['react', 'react-router', 'react-bootstrap', 'react-router-bootstrap', 'history', 'jquery']);
+  b.transform({ global: true }, reactify);
+  b.require(deps);
   return b.bundle()
     // .on('error', handleErrors)
     .pipe(source('vendor.js'))
@@ -35,11 +35,11 @@ gulp.task('vendor', function(){
 
 
 
-gulp.task('browserify', function(){
+gulp.task('bundle', function(){
   var b = browserify();
   b.transform({ global: true }, reactify); // use the reactify transform
   b.add('./src/js/main.js');
-  b.external(['react', 'react-router', 'react-bootstrap', 'react-router-bootstrap', 'history', 'jquery']);
+  b.external(deps);
   return b.bundle()
     // .on('error', handleErrors)
     .pipe(source('bundle.js'))
@@ -52,7 +52,7 @@ gulp.task('copy', function() {
       .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default',['browserify', 'copy']);
+gulp.task('default',['bundle', 'copy']);
 
 //gulp.task('watch', function() {
 //    gulp.watch('src/**/*.*', ['default']);
