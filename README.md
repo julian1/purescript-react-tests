@@ -5,6 +5,8 @@ react, react-router, react-bootstrap, react-router-bootstrap, history, jquery  e
 ```
 npm install
 
+export PATH="$PATH:$(pwd)/node_modules/.bin/"
+
 # compile vendor deps
 gulp vendor
 
