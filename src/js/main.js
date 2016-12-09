@@ -11,6 +11,8 @@ var ReactRouter = require('react-router');
 var UserGist = require('./UserGist.js');
 var ContactForm = require('./ContactForm.js');
 
+// this works!
+var Main = require('../../output/Main/index.js');
 
 
 // https://github.com/rackt/react-router/blob/master/docs/guides/basics/Histories.md
@@ -28,6 +30,8 @@ var IndexRoute = ReactRouter.IndexRoute;
 //var DefaultRoute = ReactRouter.DefaultRoute;
 //var RouteHandler = ReactRouter.RouteHandler;
 
+
+console.log( 'here')
 
 const Home = React.createClass({
   render() {
@@ -58,7 +62,7 @@ const About = React.createClass({
            <Button bsStyle="primary" bsSize="medium">Medium button</Button>
           <Button bsSize="medium">Large button</Button>
           <UserGist source="https://api.github.com/users/octocat/gists" />
-          <ContactForm  value={ { name : "fred" }  }  />
+          <ContactForm  value={ { name : Main.main  }  }  />
       </div>
       ); 
   }

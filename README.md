@@ -1,3 +1,14 @@
+
+
+#### Turnaround
+
+vim Main.purs
+
+pulp build && gulp && node server.js
+
+
+
+
 #### react tests
 
 react, react-router, react-bootstrap, react-router-bootstrap, history, jquery  etc
