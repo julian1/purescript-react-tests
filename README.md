@@ -7,7 +7,16 @@ vim Main.purs
 pulp build && gulp && node server.js
 
 
+# putting this in bower is not enough
+npm install 
 
+npm install bower pulp
+npm install purescript
+
+bower install
+
+
+npm install react-dom
 
 #### react tests
 
