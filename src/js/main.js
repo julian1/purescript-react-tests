@@ -54,7 +54,9 @@ var NavItem = Bootstrap.NavItem;
 var ReactRouterBootstrap = require('react-router-bootstrap'); 
 var LinkContainer = ReactRouterBootstrap.LinkContainer;
 
-
+// const About = Main.hello( { name: 'whoot2' } ) 
+const About = Main.helloWorldComponent// ( { name: 'whoot2' } ) 
+/*
 const About = React.createClass({
   render() {
     return (
@@ -67,7 +69,7 @@ const About = React.createClass({
       ); 
   }
 });
-
+*/
 
 
 const Message = React.createClass({
